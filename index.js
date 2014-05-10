@@ -1,12 +1,11 @@
 var FTPSync = require('ftpsync');
 
 hexo.extend.deployer.register('ftpsync', function(args, callback){
-  var config = hexo.config.deploy,
-    ftp = new FTPSync();
+  var ftp = new FTPSync();
 
-  if (!config.host || !config.user || config.pass == null){
+  if (!args.host || !args.user || args.pass == null){
     var help = [
-      'You should configure deployment settings in _config.yml first!',
+      'You should argsure deployment settings in _config.yml first!',
       '',
       'Example:',
       '  deploy:',
@@ -19,7 +18,7 @@ hexo.extend.deployer.register('ftpsync', function(args, callback){
       '    ignore: [ignore]',
       '    connections: [connections] # Default is 1',
       '',
-      'For more help, you can check the docs: ' + 'http://zespia.tw/hexo/docs/deployment.html'.underline
+      'For more help, you can check the docs: ' + 'http://hexo.io/docs/deployment.html'.underline
     ];
 
     console.log(help.join('\n'));
@@ -28,12 +27,12 @@ hexo.extend.deployer.register('ftpsync', function(args, callback){
 
   ftp.settings = {
     local: hexo.base_dir,
-    host: config.host,
-    port: config.port || 21,
-    remote: config.remote || '/',
-    user: config.user,
-    pass: config.pass,
-    connections: config.connections || 1,
+    host: args.host,
+    port: args.port || 21,
+    remote: args.remote || '/',
+    user: args.user,
+    pass: args.pass,
+    connections: args.connections || 1,
     ignore: []
   };
 

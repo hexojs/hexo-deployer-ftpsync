@@ -39,8 +39,8 @@ hexo.extend.deployer.register('ftpsync', function(args, callback){
     ftpsync.settings.port = 21;
   }
 
-  ftpsync.run(()=>{
-    callback();
+  ftpsync.run((args)=>{
+    callback(args);
     process.exit();
   });
 });

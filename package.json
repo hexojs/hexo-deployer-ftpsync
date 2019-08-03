@@ -3,6 +3,11 @@
   "version": "0.1.1",
   "description": "FTP deployer for Hexo",
   "main": "index",
+  "scripts": {
+    "eslint": "eslint .",
+    "test": "mocha test/index.js",
+    "test-cov": "nyc npm run test"
+  },
   "repository": "hexojs/hexo-deployer-ftpsync",
   "bugs": {
     "url": "https://github.com/hexojs/hexo-deployer-ftpsync/issues"
@@ -18,6 +23,13 @@
   "license": "MIT",
   "dependencies": {
     "ftpsync": "^0.1.5"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^6.1.0",
+    "eslint-config-hexo": "^3.0.0",
+    "mocha": "^6.0.0",
+    "nyc": "^14.1.1"
   },
   "engines": {
     "node": ">=8.6.0"

@@ -3,10 +3,7 @@
   "version": "0.1.1",
   "description": "FTP deployer for Hexo",
   "main": "index",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hexojs/hexo-deployer-ftpsync.git"
-  },
+  "repository": "hexojs/hexo-deployer-ftpsync",
   "bugs": {
     "url": "https://github.com/hexojs/hexo-deployer-ftpsync/issues"
   },
@@ -18,10 +15,7 @@
     "deployer"
   ],
   "author": "Tommy Chen <tommy351@gmail.com> (http://zespia.tw)",
-  "license": {
-    "type": "MIT",
-    "url": "https://raw.github.com/tommy351/hexo/master/LICENSE"
-  },
+  "license": "MIT",
   "dependencies": {
     "ftpsync": "^0.1.5"
   },

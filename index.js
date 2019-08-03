@@ -2,11 +2,11 @@
 
 /* global hexo */
 
-var ftpsync = require('ftpsync');
+const ftpsync = require('ftpsync');
 
-hexo.extend.deployer.register('ftpsync', function(args, callback) {
+hexo.extend.deployer.register('ftpsync', (args, callback) => {
   if (!args.host || !args.user || args.pass == null) {
-    var help = [
+    const help = [
       'You should argsure deployment settings in _config.yml first!',
       '',
       'Example:',
@@ -37,6 +37,7 @@ hexo.extend.deployer.register('ftpsync', function(args, callback) {
     connections: args.connections || 1,
     ignore: args.ignore || []
   };
+
   ftpsync.log.verbose = args.verbose || false;
 
   if (ftpsync.settings.port > 65535 || ftpsync.settings.port < 1) {

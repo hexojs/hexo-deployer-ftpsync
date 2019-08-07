@@ -1,5 +1,8 @@
 # FTP deployer
 
+[![Build Status](https://travis-ci.org/hexojs/hexo-deployer-ftpsync.svg?branch=master)](https://travis-ci.org/hexojs/hexo-deployer-ftpsync)
+[![NPM version](https://badge.fury.io/js/hexo-deployer-ftpsync.svg)](https://www.npmjs.com/package/hexo-deployer-ftpsync)
+
 Deploy your site via FTP.
 
 ## Install

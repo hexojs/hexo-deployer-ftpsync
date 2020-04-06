@@ -32,7 +32,7 @@
     "eslint": "^6.1.0",
     "eslint-config-hexo": "^4.1.0",
     "mocha": "^6.0.0",
-    "nyc": "^14.1.1"
+    "nyc": "^15.0.1"
   },
   "engines": {
     "node": ">=8.6.0"

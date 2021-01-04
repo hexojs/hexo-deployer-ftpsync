@@ -13,7 +13,7 @@ $ npm install hexo-deployer-ftpsync --save
 
 ## Usage
 
-See https://hexo.io/docs/deployment.html#FTPSync
+See https://hexo.io/docs/one-command-deployment#FTPSync
 
 ## Warning
 

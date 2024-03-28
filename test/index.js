@@ -54,7 +54,6 @@ describe('deployer', () => {
   }
 
   it('default', () => {
-    // return true;
     return deployer({
       host: '127.0.0.1',
       user: 'anonymous',

@@ -1,13 +1,14 @@
 {
   "name": "hexo-deployer-ftpsync",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "FTP deployer for Hexo",
   "main": "index.js",
   "files": [
+    "lib/",
     "index.js"
   ],
   "scripts": {
-    "eslint": "eslint .",
+    "eslint": "eslint index.js lib test",
     "test": "mocha test/index.js",
     "test-cov": "nyc npm run test"
   },
@@ -25,16 +26,18 @@
   "author": "Tommy Chen <tommy351@gmail.com> (http://zespia.tw)",
   "license": "MIT",
   "dependencies": {
-    "ftpsync": "^0.2.0"
+    "basic-ftp": "^5.0.5"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "eslint": "^6.1.0",
-    "eslint-config-hexo": "^4.1.0",
-    "mocha": "^7.1.1",
-    "nyc": "^15.0.1"
+    "chai": "^4.3.7",
+    "eslint": "^8.57.0",
+    "eslint-config-hexo": "^5.0.0",
+    "ftp-srv": "^4.6.3",
+    "hexo-fs": "^4.1.1",
+    "mocha": "^10.4.0",
+    "nyc": "^15.1.0"
   },
   "engines": {
-    "node": ">=8.6.0"
+    "node": ">=14"
   }
 }

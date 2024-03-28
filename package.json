@@ -1,6 +1,6 @@
 {
   "name": "hexo-deployer-ftpsync",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "FTP deployer for Hexo",
   "main": "index.js",
   "files": [
@@ -38,6 +38,6 @@
     "nyc": "^15.1.0"
   },
   "engines": {
-    "node": ">=8.6.0"
+    "node": ">=14"
   }
 }

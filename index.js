@@ -2,12 +2,12 @@
 
 /* global hexo */
 
-const ftpsync = require('ftpsync');
+const ftp = require('basic-ftp');
 
-hexo.extend.deployer.register('ftpsync', (args, callback) => {
+hexo.extend.deployer.register('ftpsync', async (args, callback) => {
   if (!args.host || !args.user || args.pass == null) {
     const help = [
-      'You should argsure deployment settings in _config.yml first!',
+      'You should ensure deployment settings in _config.yml first!',
       '',
       'Example:',
       '  deploy:',
@@ -17,34 +17,36 @@ hexo.extend.deployer.register('ftpsync', (args, callback) => {
       '    remote: [remote] # Default is `/`',
       '    user: <user>',
       '    pass: <pass>',
-      '    ignore: [ignore]',
-      '    connections: [connections] # Default is 1',
+      '    clear: [clear] # Default is false',
       '',
-      'For more help, you can check the docs: ' + 'http://hexo.io/docs/deployment.html'.underline
+      'For more help, you can check the docs: http://hexo.io/docs/deployment.html'
     ];
 
-    console.log(help.join('\n'));
+    hexo.log.warn(help.join('\n'));
     return callback();
   }
 
-  ftpsync.settings = {
-    local: hexo.public_dir,
-    host: args.host,
-    port: args.port || 21,
-    remote: args.remote || '/',
-    user: args.user,
-    pass: args.pass,
-    connections: args.connections || 1,
-    ignore: args.ignore || []
-  };
+  const client = new ftp.Client();
+  client.ftp.verbose = args.verbose || false;
 
-  ftpsync.log.verbose = args.verbose || false;
+  try {
+    await client.access({
+      host: args.host,
+      port: args.port || 21,
+      user: args.user,
+      password: args.pass,
+      secure: false
+    });
 
-  if (ftpsync.settings.port > 65535 || ftpsync.settings.port < 1) {
-    ftpsync.settings.port = 21;
+    await client.ensureDir(args.remote);
+    if (args.clear) await client.clearWorkingDir();
+    await client.uploadFromDir(hexo.public_dir);
+
+    hexo.log.info('Deployment complete');
+  } catch (err) {
+    hexo.log.error('FTP Deployment Error:', err);
+  } finally {
+    client.close();
+    callback();
   }
-
-  ftpsync.run((err, result) => {
-    if (err) callback(err);
-  });
 });

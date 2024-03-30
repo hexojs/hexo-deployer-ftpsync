@@ -12,7 +12,10 @@
     "test": "mocha test/index.js",
     "test-cov": "nyc npm run test"
   },
-  "repository": "hexojs/hexo-deployer-ftpsync",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hexojs/hexo-deployer-ftpsync.git"
+  },
   "bugs": {
     "url": "https://github.com/hexojs/hexo-deployer-ftpsync/issues"
   },

@@ -14,3 +14,7 @@ $ npm install hexo-deployer-ftpsync --save
 ## Usage
 
 See https://hexo.io/docs/one-command-deployment#FTPSync
+
+## Warning
+
+If the parameter `clear` is set to true, this plugin will delete all the files and directories on the remote server before uploading. Use this plugin in production at your own risk.
